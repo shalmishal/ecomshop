@@ -51,7 +51,7 @@ public class UserDAOImpl implements UserDAO {
 	{
 	try {
 		log.debug("starting of save method");
-		userDetails.setRole("ROLE_USER");
+		userDetails.setEnabled(true);
 		sessionFactory.getCurrentSession().save(userDetails);
 	
 		log.debug("Ending of save method");
@@ -113,7 +113,7 @@ public UserDetails get(String username)
 }
 
 @Transactional
-public UserDetails isValidUser(String username, String password) {
+public boolean isValidUser(String username, String password) {
 	System.out.println("dao impl");
 	String hql ="from UserDetails where username= '" + username + "' and " + " password ='" + password + "'";
 	Query query = sessionFactory.getCurrentSession().createQuery(hql);
@@ -122,9 +122,9 @@ public UserDetails isValidUser(String username, String password) {
 	if(list != null && !list.isEmpty())
 	{
 	
-		return list.get(0);
+		return true;
 	}
+	return false;
 	
-	return null;
 	}
 }

@@ -14,12 +14,10 @@ public boolean save(UserDetails userDetails);
 		
 		public List<UserDetails> list();
 				
-		public UserDetails isValidUser(String username, String password);
+		public boolean isValidUser(String username, String password);
 
 		public UserDetails get(String username);
 
-	
 }
-
 
 
