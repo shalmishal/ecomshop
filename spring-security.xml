@@ -18,36 +18,20 @@
 <security:http use-expressions="true" auto-config="true">
 
 <security:intercept-url access="hasRole('ROLE_ADMIN')" pattern="/Admin"/>
-
 <security:intercept-url access="hasRole('ROLE_ADMIN')" pattern="/categories"/>
-
 <security:intercept-url access="hasRole('ROLE_ADMIN')" pattern="/product"/>
-
 <security:intercept-url access="hasRole('ROLE_ADMIN')" pattern="/supplier"/>
-
 <security:intercept-url access="hasRole('ROLE_ADMIN')" pattern="/viewCustomers"/>
-
 <security:intercept-url access="hasRole('ROLE_USER')" pattern="/"/>
-
-<security:intercept-url access="hasRole('ROLE_USER')" pattern="/user"/>
-
+<security:intercept-url access="hasRole('ROLE_USER')" pattern="/Login"/>
 <security:intercept-url access="permitAll" pattern="/"/>
-
 <security:intercept-url access="permitAll" pattern="/Login"/>
-
-<security:intercept-url access="permitAll" pattern="/register"/>
-
-<security:intercept-url access="permitAll" pattern="/productView"/>
-
-<security:form-login authentication-success-forward-url="/loginsuccess" authentication-failure-url="/login" login-processing-url="/perform_login" default-target-url="/" login-page="/login"/>
-
+<security:intercept-url access="permitAll" pattern="/Register"/>
+<security:intercept-url access="permitAll" pattern="/Productitem"/>
+<security:form-login authentication-success-forward-url="/loginsuccess" authentication-failure-url="/Login" login-processing-url="/perform_login" default-target-url="/Login"/>
 <security:logout logout-success-url="/" invalidate-session="true" logout-url="/logout"/>
-
 <security:csrf disabled="true"/>
-
 </security:http>
-
-
 <security:authentication-manager>
 <security:authentication-provider>
 <security:jdbc-user-service
@@ -56,9 +40,6 @@
 				authorities-by-username-query="select username, role from UserDetails where username =?" />
 
 <!-- <security:jdbc-user-service authorities-by-username-query="select username, Role from UserDetails where username =?" users-by-username-query="select username,password,enabled from UserDetails where username=?" data-source-ref="dataSource"/> -->
-
 </security:authentication-provider>
-
 </security:authentication-manager>
-
 </beans:beans>
