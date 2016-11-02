@@ -27,6 +27,14 @@ import com.grostore.model.UserDetails;
 		public String Aboutus(){
 			return "Aboutus";
 		}
+		@RequestMapping("/Login")
+		public ModelAndView Login()
+		{
+			System.out.println("login page");
+			ModelAndView mv=new ModelAndView("Login");
+			mv.addObject("userDetails",userDetails);
+			return mv;
+		}
 		@RequestMapping("/Register")
 		public ModelAndView registerhere()
 		{
