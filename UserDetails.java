@@ -1,9 +1,9 @@
 package com.grostore.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -11,14 +11,29 @@ import org.springframework.stereotype.Component;
 	@Component
 	public class UserDetails {
 		
-		private String name;
+		@Id
+		@Column
 		private String username;
+		@Column
+		private String name;
+		@Column
 		private String password;
+		@Column
 		private String email;
+		@Column
 		private String Phone;
+		@Column
 		private String address;
-		private String role;
-		
+		@Column
+		private String role="ROLE_USER";
+		@Column
+		private boolean enabled;
+		public boolean isEnabled() {
+			return enabled;
+		}
+		public void setEnabled(boolean enabled) {
+			this.enabled = enabled;
+		}
 		public String getRole() {
 			return role;
 		}
@@ -31,7 +46,7 @@ import org.springframework.stereotype.Component;
 		public void setName(String name) {
 			this.name = name;
 		}
-		@Id
+		
 		public String getUsername() {
 			return username;
 		}
