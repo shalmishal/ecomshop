@@ -11,16 +11,12 @@
 </head>
 <body>
 <%@ include file="/views/header.jsp" %>
-<h>${message}</h>
-<c:url var="addAction" value="/isValidUser">
-		</c:url>
-<form:form action="${addAction}" method="post">
+<h3>${message}</h3>
 
-
-
+<form:form action="perform_login" method="post" role="form">
 	   <center><h2 style="color:crimson">LOGIN</h2></center>
 	  
-	   <table cellspacing="25" cellpadding="2" width="45%" "style=bgcolor:crimson"
+	   <table cellspacing="25" cellpadding="2" width="45%" style="bgcolor:crimson"
 			align="center">
 
 
@@ -35,9 +31,8 @@
 </tr>
 <tr>
 <td><input type="submit" value="Login"></td>
-</tr>
+</tr></table>
 </form:form>
-</table>
 <%@ include file="/views/footer.jsp" %>
 
 </body>
