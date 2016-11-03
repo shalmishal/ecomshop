@@ -19,7 +19,7 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<%@ include file="/views/header.jsp" %>
+<%@ include file="header.jsp" %><br/><br/>
  <div class="container-fluid" style="background-color:crimson;color:black;height:80px;">
   <center><h2>WELCOME ADMIN</h2></center>
 </div>
@@ -90,6 +90,7 @@
 				</tr>
 			</c:forEach>
 		</table>
-	</c:if><%@ include file="/views/footer.jsp" %>
+	</c:if>
+	<%@ include file="footer.jsp" %>
 </body>
 </html>

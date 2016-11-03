@@ -21,13 +21,13 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
-p {
+/*p {
 	color: black;
 	font-weight: bold;
 	font-decoration: underline;
 	font-size: 20px;
 	font-family: Tahoma Sans-serif Geneva;
-}
+}*/
 
 label {
 	color:blue;
@@ -40,17 +40,17 @@ label {
 </head>
 <body>
 
-<%@ include file="/views/header.jsp" %>
-
-	<center><p>Enter the credentials</p>
-	</center>
+<%@ include file="header.jsp" %>
+<br/><br/><br/><br/>
+	<center><h2 style="color:crimson">Registration portal</h2></center>
+	  
 		<div class="container">
 		
 		<!-- class="form-horizontal" role="form"  class="form" commandName="UserDetails" name="form1" onsubmit="return a()" -->
 		<c:url var="addAction" value="/Success">
 		</c:url>
 		<%-- <a href="${flowExecutionUrl}&_eventId_home">Home</a> --%>
-		<form:form method="post" action="${addAction}" commandName="UserDetails" class="form-horizontal">  
+		<form:form method="post" action="Success" commandName="userDetails" class="form-horizontal">  
 <div class="form-group">
     <label class="control-label col-sm-2"><spring:message text="NAME:"/></label>
     <div class="col-sm-5">
@@ -95,27 +95,24 @@ label {
     <div class="col-sm-5"> 
       <input type="password" class="form-control" name="password" pattern=".{6,8}" required="true" title="password should contain 6 to 8 characters">
     </div>
-  </div>
-  <div class="form-group">
-    <label  class="control-label col-sm-2"><spring:message text="MOBILE NO:"/></label>
-    <div class="col-sm-5"> 
-      <input type="number" class="form-control" name="contact"  pattern="/(7|8|9)\d{9}/" required="true" title="Please enter valid mobile number">
-    </div>
   </div><br>
-  <c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('contact')}" var="err">
-					  <div><span>${err.text}</span></div>
-					</c:forEach>
-  
- 
-  <br>
   <c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('password')}" var="err">
 					  <div><span>${err.text}</span></div>
 					</c:forEach>
-  	<center><button type="submit" class="btn btn-success">Register</button></center>
+  <div class="form-group">
+    <label  class="control-label col-sm-2"><spring:message text="PHONE:"/></label>
+    <div class="col-sm-5"> 
+      <input type="number" class="form-control" name="Phone"  pattern="/(7|8|9)\d{10}$/" required="true" title="Please enter valid phone number">
+    </div>
+  </div><br> 
+  <c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('Phone')}" var="err">
+					  <div><span>${err.text}</span></div>
+					</c:forEach>
+  <center><button type="submit" class="btn btn-success">Register</button></center>
   </form:form>
 		
 	</div>
-	<%@ include file="/views/footer.jsp" %>
+	<%@ include file="footer.jsp" %>
 </body>
 </html>
 				<!-- <div

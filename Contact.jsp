@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="/views/header.jsp" %>
+<%@ include file="header.jsp" %><br/><br/>
 <h4>
 CONTACT US
 <br><br>
@@ -22,6 +22,6 @@ Speak to a Product Specialist now: +91-22-61235353
 <br><br>
 Email Us: helpdesk@bajaao.com
 </h4>
-<%@ include file="/views/footer.jsp" %>
+<%@ include file="footer.jsp" %>
 </body>
 </html>

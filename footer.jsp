@@ -13,12 +13,15 @@
 </head>
 <style>
 .footer {
-   margin-top:500px;
+   margin-top:15px;
     color:red;
     background-color: black;
     clear: left;
     text-align: center;
+   
+   
 	}
+	
 	</style>
 	<body>
 	<div class="footer">

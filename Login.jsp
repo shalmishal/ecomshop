@@ -10,30 +10,30 @@
 
 </head>
 <body>
-<%@ include file="/views/header.jsp" %>
+<%@ include file="header.jsp" %><br/><br/><br/>
 <h3>${message}</h3>
 
 <form:form action="perform_login" method="post" role="form">
-	   <center><h2 style="color:crimson">LOGIN</h2></center>
+	   <center><h2 style="color:crimson">Login Credentials</h2></center>
 	  
-	   <table cellspacing="25" cellpadding="2" width="45%" style="bgcolor:crimson"
+	   <table cellspacing="10" cellpadding="2" width="45%" bgcolor="#00FFFF"
 			align="center">
 
 
 <tr>
 <td> UserName</td>
-<td><input type="text"  name="username"/></td>
+<td><input type="text"  name="username" size="30"/></td>
 </tr>
-
+<br/>
 <tr>
 <td>Password</td>
-<td><input type="password"  name="password"/></td>
+<td><input type="password"  name="password" size="30"/></td>
 </tr>
 <tr>
 <td><input type="submit" value="Login"></td>
 </tr></table>
 </form:form>
-<%@ include file="/views/footer.jsp" %>
+<%@ include file="footer.jsp" %>
 
 </body>
 </html>

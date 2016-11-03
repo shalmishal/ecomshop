@@ -5,14 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Products</title>
-<img src="G:\MUCICS\music.jpg.jpg" class="img-thumbnail" style="width:180px;height:150px" align="left-center">
-<h2 style="color:orange"><center>BAJAAO</center></h12>
+<img src="G:\MUCICS\music.jpg" class="img-thumbnail" style="width:180px;height:150px" align="left-center">
+<h2 style="color:orange"><center>BAJAAO</center></h2>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
-<%@ include file="header.jsp" %>
+<%@include file="header.jsp"%><br/>
 <p><div class="container">
 <ul class="list-inline">
 <ul class="nav navbar-nav navbar-left">
@@ -62,7 +62,24 @@
       </div>
     </div>  
 </div>
-  
+  <div class="col-md-3 col-sm-4 col-xs-6">
+    <div class="thumbnail_container">
+      <div class="thumbnail">
+        <img src="G:\products\img5.jpg">
+		<h3>ORCHESTRA</h3>
+		  
+      </div>
+    </div>  
+</div>
+<div class="col-md-3 col-sm-4 col-xs-6">
+    <div class="thumbnail_container">
+      <div class="thumbnail">
+        <img src="G:\products\img6.jpg">
+		<h3>KEYBOARD</h3>
+		  
+      </div>
+    </div>  
+</div>
 </div>
 </div>
 <%@ include file="footer.jsp" %>

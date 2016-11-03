@@ -13,8 +13,9 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
-<%@ include file="/views/header.jsp" %>
+
 <body>
+<%@ include file="header.jsp"%><br/><br/>
 <div class="container-fluid"
 style="background-color:crimson; color: black; height: 80px;">
 <center>
@@ -123,13 +124,13 @@ style="background-color:crimson; color: black; height: 80px;">
 					<td>${product.description}</td>
 					<td>${product.category.name}</td>
 					<td>${product.supplier.name}</td>
-					<td><img src="<c:url value="G:\dj controllers/${product.id}.jpg"/>"></td>
+					<td><img src="<c:url value="G:\\products\\${product.id}.jpg"/>"></td>
 					<td><a href="<c:url value='editproduct/${product.id}' />">Edit</a></td>
 					<td><a href="<c:url value='removeproduct/${product.id}' />">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</c:if>
-	<%@ include file="/views/footer.jsp" %>
+	<%@ include file="footer.jsp" %>
 </body>
 </html>
