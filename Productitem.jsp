@@ -16,11 +16,11 @@
 <p><div class="container">
 <ul class="list-inline">
 <ul class="nav navbar-nav navbar-left">
-<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"href="categories.jsp"><h3 style="color:purple">MUSICAL INSTRUMENTS</h3></a>
+<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><h3 style="color:purple">GUITAR</h3></a>
 <ul class="dropdown-menu">
 <li><a href="#">GUITAR</a></li>
+<li><a href="#">ELECTRIC GUITAR</a></li>
 <li><a href="#">KEYBOARD</a></li>
-<li><a href="#">DRUMS</a></li>
 </ul>
 </li>
 </div></p>
@@ -30,8 +30,8 @@
   <div class="col-md-3 col-sm-4 col-xs-6">
     <div class="thumbnail_container">
       <div class="thumbnail">
-          <img src="G:\prodit\img1.jpeg">
-		  <h3>GUITAR</h3>
+          <img src="G:\products\img1.jpg">
+		  <h3>CLASSICAL GUITAR</h3>
 		  
       </div>
     </div>
@@ -39,8 +39,8 @@
 <div class="col-md-3 col-sm-4 col-xs-6">
     <div class="thumbnail_container">
       <div class="thumbnail">
-        <img src="G:\prodit\img2.jpeg">
-		<h3>ELECTRIC GUITAR</h3>
+        <img src="G:\products\img2.jpg">
+		<h3>VINTAGE GUITAR</h3>
 		  
       </div>
     </div>  
@@ -48,8 +48,8 @@
 <div class="col-md-3 col-sm-4 col-xs-6">
     <div class="thumbnail_container">
       <div class="thumbnail">
-          <img src="G:\prodit\img3.jpeg">
-		  <h3>KEYBOARD</h3>
+          <img src="G:\products\img3.jpg">
+		  <h3>BASS GUITARS</h3>
 		  
       </div>
     </div>
@@ -57,8 +57,8 @@
 <div class="col-md-3 col-sm-4 col-xs-6">
     <div class="thumbnail_container">
       <div class="thumbnail">
-        <img src="G:\prodit\img4.jpeg">
-		<h3>DRUMS</h3>
+        <img src="G:\products\img4.jpg">
+		<h3>BEGINNER GUITAR</h3>
       </div>
     </div>  
 </div>
