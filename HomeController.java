@@ -16,8 +16,10 @@ import com.grostore.model.UserDetails;
 		UserDetails userDetails;
 		@Autowired(required=true)
 		UserDAO userDAO;
-		
-		
+		@RequestMapping("/webapp/index")
+		public String home(){
+			return "home";
+		}
 		
 		@RequestMapping("/Contact")
 		public String contact(){
@@ -26,6 +28,10 @@ import com.grostore.model.UserDetails;
 		@RequestMapping("/Aboutus")
 		public String Aboutus(){
 			return "Aboutus";
+		}
+		@RequestMapping("/Productitem")
+		public String Productitem(){
+			return "Productitem";
 		}
 		@RequestMapping("/Login")
 		public ModelAndView Login()

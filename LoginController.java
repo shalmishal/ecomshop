@@ -73,7 +73,7 @@ String username = SecurityContextHolder.getContext().getAuthentication().getName
 			 session.setAttribute("supplier",supplier);
 			 session.setAttribute("product",product);
 	         session.setAttribute("username",username);
-	    	 page="product";
+	    	 page="Productitem";
 	    	 
 	    	 
 	    	 break;
