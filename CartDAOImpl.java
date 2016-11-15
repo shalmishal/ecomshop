@@ -1,63 +1,44 @@
 package com.grostore.dao;
 
-import java.util.List;
+import java.io.IOException;
 
-import org.hibernate.Criteria;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.grostore.model.Cart;
+@Repository
+@Transactional
+public class CartDAOImpl implements CartDAO{
+	 @Autowired
+	    private SessionFactory sessionFactory;
 
-public class CartDAOImpl {
-	@Transactional
-	@Repository("cartDao")
-	public class CartDaoImpl implements CartDAO{
-		@Autowired
-		private SessionFactory sessionFactory;
-		
-		@Autowired
-		public CartDaoImpl(SessionFactory sessionFactory)
-		{
-			
-			try {
-				this.sessionFactory = sessionFactory;
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+	    @Autowired
+	    private OrderDAO orderDAO;
 
-		public void saveOrupdate(Cart cart) {
-			sessionFactory.getCurrentSession().saveOrUpdate(cart);
-			
-		}
+	    public Cart getCartById (int cartId) {
+	        Session session = sessionFactory.getCurrentSession();
+	        return (Cart) session.get(Cart.class, cartId);
+	    }
 
-		public List<Cart> list() {
-			@SuppressWarnings("unchecked")
-			List<Cart> list = (List<Cart>) 
-			          sessionFactory.getCurrentSession()
-					.createCriteria(Cart.class)
-					.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+	    public void update(Cart cart) {
+	        int cartId = cart.getCartId();
+	        double grandTotal = orderDAO.getOrderGrandTotal(cartId);
+	        cart.setGrandTotal(grandTotal);
 
-			return list;	
-		}
-		public boolean delete(String cartid) {
-			Cart cart = new Cart();
-			cart.setCartid(cartid);
-			try
-			{
-				sessionFactory.getCurrentSession().delete(cart);	
-			}catch (Exception e)
-			{
-			e.printStackTrace();
-			return false;
-		}
-			return true;
-		}
+	        Session session = sessionFactory.getCurrentSession();
+	        session.saveOrUpdate(cart);
+	    }
 
-
-	}
-
-}
+	    public Cart validate(int cartId) throws IOException {
+	        Cart cart=getCartById(cartId);
+	        if(cart==null||cart.getCartItems().size()==0) {
+	            throw new IOException(cartId+"");
+	        }
+	        update(cart);
+	        return cart;
+	    }
+	   
+	 }

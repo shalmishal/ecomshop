@@ -1,12 +1,11 @@
 package com.grostore.dao;
 
-import java.util.List;
+import java.io.IOException;
 
 import com.grostore.model.Cart;
 
 public interface CartDAO {
-	public void saveOrupdate(Cart cart);
-	public boolean delete(String cartid);
-	public List<Cart> list();
-
+	 Cart getCartById (int cartId);
+Cart validate(int cartId) throws IOException;
+	   void update(Cart cart);
 }
