@@ -27,8 +27,7 @@ public class CartDAOImpl implements CartDAO{
 	        int cartId = cart.getCartId();
 	        double grandTotal = orderDAO.getOrderGrandTotal(cartId);
 	        cart.setGrandTotal(grandTotal);
-
-	        Session session = sessionFactory.getCurrentSession();
+             Session session = sessionFactory.getCurrentSession();
 	        session.saveOrUpdate(cart);
 	    }
 

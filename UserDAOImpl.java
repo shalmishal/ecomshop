@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.grostore.dao.UserDAO;
+import com.grostore.model.Cart;
 import com.grostore.model.UserDetails;
 
 
@@ -47,23 +49,33 @@ public class UserDAOImpl implements UserDAO {
 		return listUserDetails;
 	}
 @Transactional
-	public boolean save(UserDetails userDetails)
-	{
-	try {
-		log.debug("starting of save method");
-		userDetails.setEnabled(true);
-		sessionFactory.getCurrentSession().save(userDetails);
+public boolean save(UserDetails userDetails)
+{
+try {
+	 Session session = sessionFactory.getCurrentSession();
 	
-		log.debug("Ending of save method");
-		return true;
-	}
-	catch(Exception e)
-	{
-		log.error("Exception occured in save" +e.getMessage());
-		e.printStackTrace();
-		return false;
-	}
-	}
+	userDetails.setRole("ROLE_USER");
+	userDetails.setEnabled(true);
+	
+	
+	  Cart newCart = new Cart();
+        newCart.setUserDetails(userDetails);
+        userDetails.setCart(newCart);
+        session.saveOrUpdate(userDetails);
+        session.saveOrUpdate(newCart);
+
+        session.flush();
+	
+	return true;
+
+}
+catch(Exception e)
+{
+	
+	e.printStackTrace();
+	return false;
+}
+}
 @Transactional
 	public boolean update(UserDetails userDetails)
 	{
@@ -125,6 +137,23 @@ public boolean isValidUser(String username, String password) {
 		return true;
 	}
 	return false;
+
+}
+
+@Transactional
+public UserDetails getCustomerByUsername(String username) {
+
+	String hql = "from UserDetails where username=" + "'" + username + "'";
 	
-	}
+Query query = sessionFactory.getCurrentSession().createQuery(hql);
+	
+List<UserDetails> listOfCustomers = query.list();
+	
+if (listOfCustomers != null && !listOfCustomers.isEmpty()){
+
+	return  listOfCustomers.get(0);
+
+}
+return null;
+}
 }

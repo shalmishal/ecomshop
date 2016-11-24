@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 import com.grostore.model.Product;
-
+@EnableTransactionManagement
 @Repository("ProductDAO")
 public class ProductDAOImpl implements ProductDAO{
 	
@@ -62,6 +62,24 @@ public class ProductDAOImpl implements ProductDAO{
 		}
 		return true;
 		
+	}
+
+
+	@Transactional
+	public Product getProductById(String id) {
+		String hql = "from Product where id='" + id+"'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		
+		List<Product> listOfProduct = query.list();
+			
+		if (listOfProduct != null && !listOfProduct.isEmpty()){
+
+			return  listOfProduct.get(0);
+
+		}
+				
+			
+			return null;
 	}
 
 
